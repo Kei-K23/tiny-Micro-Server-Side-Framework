@@ -1,14 +1,22 @@
 {
-  "name": "tiny-router",
-  "version": "1.0.0",
-  "description": "",
+  "name": "tiny-micro-framework",
+  "version": "0.1.0",
+  "description": " This is practical, and experimental project for learning how framework like ExpressJS work by building my own micro-framework with NodeJS and TypeScript without using any external dependency.",
   "main": "index.js",
   "scripts": {
     "build": "tsc --build",
     "dev": "cd dist && node index.js",
     "clean": "tsc --build --clean"
   },
-  "keywords": [],
+  "keywords": [
+    "framework",
+    "micro-framework",
+    "server-side",
+    "backend",
+    "api",
+    "nodejs",
+    "typescript"
+  ],
   "author": "Kei-K23",
   "license": "ISC",
   "devDependencies": {

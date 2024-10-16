@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc --build",
+    "dev": "cd dist && node index.js",
     "clean": "tsc --build --clean"
   },
   "keywords": [],

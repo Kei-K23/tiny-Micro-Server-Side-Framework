@@ -1,29 +1,25 @@
-import {
-  createServer,
-  IncomingMessage,
-  ServerResponse,
-  STATUS_CODES,
-} from "http";
+import http, { Server } from "http";
 
-export class Server {
-  private port: number;
+interface Options {
+  port: number;
+}
 
-  constructor(port: number) {
-    this.port = port;
+export class MicroServer {
+  private server: Server;
+  private options: Options;
+
+  constructor(options: Options) {
+    this.options = options;
+    this.server = http.createServer(this.requestHandler.bind(this));
   }
 
-  public start() {
-    const server = createServer(this.requestHandler);
+  private requestHandler(req: http.IncomingMessage, res: http.ServerResponse) {
+    res.end("Hello world!");
+  }
 
-    // Start the server
-    server.listen(this.port, () => {
-      console.log(`Server is running on port ${this.port}`);
+  public listen() {
+    this.server.listen(this.options.port, () => {
+      console.log(`Server running on port ${this.options.port}`);
     });
-  }
-
-  // Request handler
-  private requestHandler(req: IncomingMessage, res: ServerResponse) {
-    res.writeHead(200, { "Content-type": "application/json" });
-    res.end(JSON.stringify({ message: "This is message" }));
   }
 }
